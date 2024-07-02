@@ -31,23 +31,39 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
                 ${cover}
               <img src="${variables.avatarURL}" class="photo" />
-              <h1>${variables.name == null ? "Your name" : variables.name}</h1>
-              <h2>${variables.role == null ? "your role" : variables.role}</h2>
-              <h3>${variables.city == null ? "your city" : variables.city}</h3>
+              <h1>${variables.name == null ? "Your name" : variables.name}
+              ${
+                variables.lastName == null
+                  ? "Your Lastname"
+                  : variables.lastName
+              }
+              </h1>
+              <h2>${variables.role == null ? "Your Role" : variables.role}</h2>
+              <h3>${variables.city == null ? "Your City" : variables.city},
+              ${
+                variables.country == null ? "Your Country" : variables.country
+              }</h3>
+              
+
               <ul class=${variables.socialMediaPosition}>
-                <li><a href="${
-                  variables.twitter
-                }"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="${
-                  variables.github
-                }"><i class="fab fa-github"></i></a></li>
-                <li><a href="${
-                  variables.linkedin
-                }"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="${
-                  variables.instagram
-                }"><i class="fab fa-instagram"></i></a></li>
-              </ul>
+
+            <li><a href="https://www.twitter.com/${
+              variables.twitter == null ? "home" : variables.twitter
+            }
+            "><i class="fab fa-twitter"></i></a></li>
+
+            <li><a href="https://github.com/${
+              variables.github == null ? "" : variables.github
+            }"><i class="fab fa-github"></i></a></li>
+
+            <li><a href="https://linkedin.com/in/${
+              variables.linkedin == null ? "" : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+
+            <li><a href="https://instagram.com/${
+              variables.instagram == null ? "" : variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li>
+          </ul>
             </div>
         `;
 }
